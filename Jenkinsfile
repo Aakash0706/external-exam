@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        IMAGE_NAME =  "jaiswalakash/java-maven"
+        IMAGE_NAME =  "jaiswalakash/external-maven"
         TAG = "v1"
     }
     stages{
