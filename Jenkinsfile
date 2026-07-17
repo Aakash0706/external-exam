@@ -13,7 +13,7 @@ pipeline{
         }
         stage('build docker image'){
          steps{
-            sh 'docker build -t spring-app1:v1 .'
+            sh 'docker build -t $IMAGE_NAME:$TAG .'
          }   
         }
         stage('Push Image'){
@@ -24,10 +24,10 @@ pipeline{
                 passwordVariable: 'PASS'
             )])
             {
-                sh '''
+                sh """
                 echo $PASS | docker login -u $USER --password-stdin
                 docker push $IMAGE_NAME:$TAG
-                '''
+                """
             }
          }   
         }
